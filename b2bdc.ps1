@@ -24,12 +24,18 @@
 
 .EXAMPLE
     .\b2bdc.ps1 -Target uio.no
-    
-.EXAMPLE
-    .\b2bdc.ps1 -Target 463b6811-b0a4-4b2a-b932-72c4c970c5d2 -OutboundGroup bb368b82-5fb0-49bc-913b-ec23ec28daf5
 
 .EXAMPLE
-    .\b2bdc.ps1 -Target hiof.no -OutboundGroup bb368b82-5fb0-49bc-913b-ec23ec28daf5 -InboundGroup adf4af42-05ba-4461-a487-1961ee53c345
+    .\b2bdc.ps1 -Target 463b6811-b0a4-4b2a-b932-72c4c970c5d2
+
+.EXAMPLE
+    .\b2bdc.ps1 -Target uio.no -OutboundGroup bb368b82-5fb0-49bc-913b-ec23ec28daf5
+
+.EXAMPLE
+    .\b2bdc.ps1 -Target uio.no -OutboundGroup bb368b82-5fb0-49bc-913b-ec23ec28daf5 -OutboundGroup br366b82-54b0-46bc-923b-ecjgu57tywhc
+
+.EXAMPLE
+    .\b2bdc.ps1 -Target uio.no -OutboundGroup bb368b82-5fb0-49bc-913b-ec23ec28daf5,b7597783-377e-4589-b464-d42f6b947bb4
 
 .NOTES
     Author: Bård Holtbakk, bard.holtbakk@nmbu.no
@@ -408,5 +414,6 @@ $both        = ($table | Where-Object { $_.Source -eq "Both"   }).Count
 $portalOnly  = ($table | Where-Object { $_.Source -eq "Portal" }).Count
 $scriptOnly  = ($table | Where-Object { $_.Source -eq "Script" }).Count
 $totalGuests = ($table | Where-Object { $_."B2B Guests" -ne "-" } | Measure-Object "B2B Guests" -Sum).Sum
+
 
 Write-Host "Both: $both  |  Portal only: $portalOnly  |  Script only: $scriptOnly  |  Total B2B guests: $totalGuests" -ForegroundColor Cyan
