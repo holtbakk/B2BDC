@@ -2,7 +2,7 @@
 Adding B2B direct connect organizations is a tedious and error-prone task, so a script should handle this much better.
 
 #### To list all organizations with B2B direct connect configured, and also EDU in .no with number of regular b2b guests.
-``` PowerShell
+```PowerShell
 .\b2bdc.ps1
 ```
 #### To add UiO by domain (uio.no) with default settings, and all inbound and outbound users allowed
